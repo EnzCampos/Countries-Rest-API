@@ -19,14 +19,18 @@ export default function Country() {
     if (!countryData) {
         return (<h3>Page is loading</h3>)
     }
+    
 
     const { name, borders, nativeName, currencies, languages, capital, region, population, subregion, topLevelDomain, flag } = code ? countryData : countryData[0]
 
-    let borderCountries = borders.map(elem => {
-        return (
-            <a href={`../code/${elem}`} key={elem} className="border-country-link">{elem}</a>
-        )
-    })
+    let borderCountries = '';
+
+    if (borders) {
+        borderCountries = borders.map(elem => {
+            return (
+                <a href={`../code/${elem}`} key={elem} className="border-country-link">{elem}</a>
+            ) 
+    })}
 
     return (
         <div className='main'>
@@ -49,10 +53,10 @@ export default function Country() {
                         <p><b>Currencies:</b> {currencies.map(currency => currency.name)}</p>
                         <p><b>Languages:</b> {(languages.map(lang => lang.name)).toString()}</p>
                     </div>
-                    <div className='border-countries'>
+                    {borders && <div className='border-countries'>
                         <h3 className='borders'>Border Countries:</h3>
                         {borderCountries}
-                    </div>
+                    </div>}
                 </div>
             </div>
         </div>
