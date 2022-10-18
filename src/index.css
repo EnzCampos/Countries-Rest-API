@@ -47,3 +47,49 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.main {
+  margin-top: 150px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.homepage {
+  border: 2px solid rgb(230, 228, 228);
+  width: 90px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  margin-left: 150px;
+  margin-bottom: 60px;
+}
+
+.country-f {
+  margin-top: 7%;
+}
+
+.country-content {
+  margin-left: 150px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 80px;
+}
+
+.country-info {
+  display: grid;
+  grid-template-columns: 350px 350px;
+  grid-template-rows: repeat(4, 35px);
+}
+
+.border-countries {
+  display: flex;
+  margin-top: 100px;
+  gap: 15px;
+}
+
+.border-country-link {
+  padding: 10px;
+  border: 2px solid rgb(230, 228, 228);
+  border-radius: 5px;
+  margin-top: 10px;
+}

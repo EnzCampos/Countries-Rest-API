@@ -29,27 +29,32 @@ export default function Country() {
     })
 
     return (
-        <div className='country-content'>
-            <div>
-                <h2 className='country-name'>{name}</h2>
-                <div className='country-info'>
-                    <p><b>Native Name:</b> {nativeName}</p>
-                    <p><b>Population:</b> {population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-                    <p><b>Region:</b> {region}</p>
-                    <p><b>Sub Region:</b> {subregion}</p>
-                    <p><b>Capital:</b> {capital}</p>
-                    <p><b>Top Level Domain:</b> {topLevelDomain.toString()}</p>
-                    <p><b>Currencies:</b> {currencies.map(currency => currency.name)}</p>
-                    <p><b>Languages:</b> {(languages.map(lang => lang.name)).toString()}</p>
-                </div>
-                <div className='border-countries'>
-                    <h3 className='borders'>Border Countries:</h3>
-                    {borderCountries}
+        <div className='main'>
+            <a href='..' style={{"display": "block"}}>
+                <p className='homepage'> {"<- Back"}</p>
+            </a>
+            <div className='country-content'>
+                <section>
+                    <img src={flag} alt='Country Flag' className='country-flag' width="800px"/>
+                </section>
+                <div className='country-f'>
+                    <h1 className='country-name'>{name}</h1>
+                    <div className='country-info'>
+                        <p><b>Native Name:</b> {nativeName}</p>
+                        <p><b>Population:</b> {population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                        <p><b>Region:</b> {region}</p>
+                        <p><b>Sub Region:</b> {subregion}</p>
+                        <p><b>Capital:</b> {capital}</p>
+                        <p><b>Top Level Domain:</b> {topLevelDomain.toString()}</p>
+                        <p><b>Currencies:</b> {currencies.map(currency => currency.name)}</p>
+                        <p><b>Languages:</b> {(languages.map(lang => lang.name)).toString()}</p>
+                    </div>
+                    <div className='border-countries'>
+                        <h3 className='borders'>Border Countries:</h3>
+                        {borderCountries}
+                    </div>
                 </div>
             </div>
-            <section>
-                <img src={flag} alt='Country Flag' className='country-flag'/>
-            </section>
         </div>
     )
 }
