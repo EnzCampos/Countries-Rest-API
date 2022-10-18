@@ -17,7 +17,7 @@ export default function Home() {
     const countriesReduced = countries.map( country => {
         return {
             "name": country.name,
-            "population": country.population,
+            "population": country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
             "region": country.region,
             "capital": country.capital,
             "flag": country.flag
@@ -26,15 +26,16 @@ export default function Home() {
 
     const countryRender = countriesReduced.map(country => {
         return (
-            <div key={country.name}>
-                <a href={`./name/${country.name}`}/>
-                <div className='country-card'>
-                    <img src={country.flag} alt='Country Flag' className='country-flag' width="250px" height="170px"/>
-                    <h2 className='country-card-name'>{country.name}</h2>
-                    <p className='country-card-info'><b>Population:</b> {country.population}</p>
-                    <p className='country-card-info'><b>Region:</b> {country.region}</p>
-                    <p className='country-card-info'><b>Capital:</b> {country.capital}</p>
-                </div>
+            <div key={country.name} className='card'>
+                <a href={`./name/${country.name}`}>
+                    <div className='country-card'>
+                        <img src={country.flag} alt='Country Flag' className='country-flag' width="250px" height="170px"/>
+                        <h2 className='country-card-name'>{country.name}</h2>
+                        <p className='country-card-info'><b>Population:</b> {country.population}</p>
+                        <p className='country-card-info'><b>Region:</b> {country.region}</p>
+                        <p className='country-card-info'><b>Capital:</b> {country.capital}</p>
+                    </div>
+                </a>
             </div>
         )
     })

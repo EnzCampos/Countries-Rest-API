@@ -35,10 +35,15 @@ code {
 
 .country-card-info {
   margin: 15px;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .country-card-name {
   margin: 15px;
   font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

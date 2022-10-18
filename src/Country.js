@@ -8,7 +8,7 @@ export default function Country() {
     const [ countryData, setCountryData ] = React.useState()
 
     var restCountriesUrl = code ? `https://restcountries.com/v2/alpha/${code}` : `https://restcountries.com/v2/name/${country}`
-    
+
 
     React.useEffect(()=>{
         fetch(restCountriesUrl)
@@ -20,13 +20,7 @@ export default function Country() {
         return (<h3>Page is loading</h3>)
     }
 
-    console.log(countryData)
-
-    const { 
-        name, borders, nativeName, currencies, 
-        languages, capital, region, population, 
-        subregion, topLevelDomain, flag } = code ? countryData : countryData[0]
-
+    const { name, borders, nativeName, currencies, languages, capital, region, population, subregion, topLevelDomain, flag } = code ? countryData : countryData[0]
 
     let borderCountries = borders.map(elem => {
         return (
@@ -40,7 +34,7 @@ export default function Country() {
                 <h2 className='country-name'>{name}</h2>
                 <div className='country-info'>
                     <p><b>Native Name:</b> {nativeName}</p>
-                    <p><b>Population:</b> {population}</p>
+                    <p><b>Population:</b> {population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                     <p><b>Region:</b> {region}</p>
                     <p><b>Sub Region:</b> {subregion}</p>
                     <p><b>Capital:</b> {capital}</p>
