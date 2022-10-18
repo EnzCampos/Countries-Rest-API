@@ -29,8 +29,8 @@ export default function Home() {
             <div key={country.name}>
                 <a href={`./name/${country.name}`}/>
                 <div className='country-card'>
-                    <img src={country.flag} alt='Country Flag' className='country-flag'/>
-                    <h3 className='country-card-name'>{country.name}</h3>
+                    <img src={country.flag} alt='Country Flag' className='country-flag' width="250px" height="170px"/>
+                    <h2 className='country-card-name'>{country.name}</h2>
                     <p className='country-card-info'><b>Population:</b> {country.population}</p>
                     <p className='country-card-info'><b>Region:</b> {country.region}</p>
                     <p className='country-card-info'><b>Capital:</b> {country.capital}</p>
