@@ -9,7 +9,6 @@ export default function Country() {
 
     var restCountriesUrl = code ? `https://restcountries.com/v2/alpha/${code}` : `https://restcountries.com/v2/name/${country}`
     
-    console.log(restCountriesUrl)
 
     React.useEffect(()=>{
         fetch(restCountriesUrl)
@@ -21,7 +20,12 @@ export default function Country() {
         return (<h3>Page is loading</h3>)
     }
 
-    const { name, borders, nativeName, currencies, languages, capital, region, population, subregion, topLevelDomain } = code ? countryData : countryData[0]
+    console.log(countryData)
+
+    const { 
+        name, borders, nativeName, currencies, 
+        languages, capital, region, population, 
+        subregion, topLevelDomain, flag } = code ? countryData : countryData[0]
 
 
     let borderCountries = borders.map(elem => {
@@ -45,11 +49,12 @@ export default function Country() {
                     <p><b>Languages:</b> {(languages.map(lang => lang.name)).toString()}</p>
                 </div>
                 <div className='border-countries'>
-                    <h3 className='borders'>Border Countries</h3>
+                    <h3 className='borders'>Border Countries:</h3>
                     {borderCountries}
                 </div>
             </div>
             <section>
+                <img src={flag} alt='Country Flag' className='country-flag'/>
             </section>
         </div>
     )
