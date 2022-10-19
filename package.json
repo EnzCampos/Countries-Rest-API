@@ -1,7 +1,7 @@
 {
   "name": "countries-rest-api",
   "version": "0.1.0",
-  "homepage": "https://enzcampos.github.io/Countries-Rest-Api",
+  "homepage": "https://enzcampos.github.io/Countries-Rest-API",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free-regular": "^5.0.13",

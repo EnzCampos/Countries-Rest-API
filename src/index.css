@@ -151,17 +151,20 @@ select {
   grid-template-rows: repeat(4, 35px);
 }
 
-.border-countries {
-  display: flex;
+.main {
   margin-top: 100px;
+}
+
+.border-countries {
+  margin-top: 50px;
   gap: 15px;
 }
 
 .border-country-link {
+  margin-right: 5px;
   padding: 10px;
   border: 2px solid var(--elem-background);
   border-radius: 5px;
-  margin-top: 10px;
   background-color: var(--elem-background);
   box-shadow: 1px 1px 8px 1px rgb(182, 182, 182);
 }

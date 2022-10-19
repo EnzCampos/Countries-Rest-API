@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { counter } from '@fortawesome/fontawesome-svg-core'
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -9,17 +10,16 @@ export default function Country(props) {
 
     var restCountriesUrl = code ? `https://restcountries.com/v2/alpha/${code}` : `https://restcountries.com/v2/name/${country}`
 
-
     React.useEffect(()=>{
         fetch(restCountriesUrl)
         .then( res => res.json() )
         .then( data => setCountryData(data) )
-    },[])
+    },[code])
 
     if (!countryData) {
         return (<h3 className='loading'>Page is loading</h3>)
     }
-    
+
     const dark = props.darkmode;
 
     const { name, borders, nativeName, currencies, languages, capital, region, population, subregion, topLevelDomain, flag } = code ? countryData : countryData[0];
@@ -29,13 +29,13 @@ export default function Country(props) {
     if (borders) {
         borderCountries = borders.map(elem => {
             return (
-                <a href={`../code/${elem}`} key={elem} className={`border-country-link ${dark}`}>{elem}</a>
+                <a href={`/Countries-Rest-API/#/code/${elem}`} key={elem} className={`border-country-link ${dark}`}>{elem}</a>
             ) 
     })}
 
     return (
         <div className='main'>
-            <a href='..' style={{"display": "block"}} className='back'>
+            <a href='../Countries-Rest-API' style={{"display": "block"}} className='back'>
                 <p className={`homepage ${dark}`}> {"<- Back"}</p>
             </a>
             <div className='country-content'>

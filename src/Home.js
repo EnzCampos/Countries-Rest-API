@@ -48,12 +48,10 @@ export default function Home(props) {
 
     const darkMode = props.darkmode
 
-    console.log(darkMode)
-
     const countryRender = filteredCountries.map(country => {
         return (
             <div key={country.name} className={`card ${darkMode}`}>
-                <a href={`./name/${country.name}`} style={{"display": "block"}}>
+                <a href={`/Countries-Rest-API/#/name/${country.name}`} style={{"display": "block"}}>
                     <div className='country-card'>
                         <img src={country.flag} alt='Country Flag' className={`country-flag ${darkMode}`} width="250px" height="200px" style={{"objectFit": "cover"}}/>
                         <h2 className={`country-card-name ${darkMode}`}>{country.name}</h2>

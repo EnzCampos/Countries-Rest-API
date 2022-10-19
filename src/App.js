@@ -15,6 +15,8 @@ function App() {
     localStorage.setItem('darkmode', JSON.stringify(darkmode))
   },[darkmode])
 
+  //Change the route path if you're running this locally.
+  
   return (
     <div className={`main-content ${darkModeClass}`}>
       <header className={`header ${darkModeClass}`}>
