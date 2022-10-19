@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Countries-Rest-API/static/css/main.3a07b32e.css",
-    "main.js": "/Countries-Rest-API/static/js/main.bca46f20.js",
+    "main.css": "/Countries-Rest-API/static/css/main.dc2de3d7.css",
+    "main.js": "/Countries-Rest-API/static/js/main.a9b4b769.js",
     "static/js/787.27eb4515.chunk.js": "/Countries-Rest-API/static/js/787.27eb4515.chunk.js",
     "index.html": "/Countries-Rest-API/index.html",
-    "main.3a07b32e.css.map": "/Countries-Rest-API/static/css/main.3a07b32e.css.map",
-    "main.bca46f20.js.map": "/Countries-Rest-API/static/js/main.bca46f20.js.map",
+    "main.dc2de3d7.css.map": "/Countries-Rest-API/static/css/main.dc2de3d7.css.map",
+    "main.a9b4b769.js.map": "/Countries-Rest-API/static/js/main.a9b4b769.js.map",
     "787.27eb4515.chunk.js.map": "/Countries-Rest-API/static/js/787.27eb4515.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3a07b32e.css",
-    "static/js/main.bca46f20.js"
+    "static/css/main.dc2de3d7.css",
+    "static/js/main.a9b4b769.js"
   ]
 }
