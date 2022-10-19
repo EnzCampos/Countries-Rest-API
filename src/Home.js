@@ -55,7 +55,7 @@ export default function Home(props) {
             <div key={country.name} className={`card ${darkMode}`}>
                 <a href={`./name/${country.name}`} style={{"display": "block"}}>
                     <div className='country-card'>
-                        <img src={country.flag} alt='Country Flag' className={`country-flag ${darkMode}`} width="350px" height="200px" style={{"objectFit": "cover"}}/>
+                        <img src={country.flag} alt='Country Flag' className={`country-flag ${darkMode}`} width="250px" height="200px" style={{"objectFit": "cover"}}/>
                         <h2 className={`country-card-name ${darkMode}`}>{country.name}</h2>
                         <p className={`country-card-info ${darkMode}`}><b>Population:</b> {country.population}</p>
                         <p className={`country-card-info ${darkMode}`}><b>Region:</b> {country.region}</p>

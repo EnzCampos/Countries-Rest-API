@@ -17,7 +17,7 @@ export default function Country(props) {
     },[])
 
     if (!countryData) {
-        return (<h3>Page is loading</h3>)
+        return (<h3 className='loading'>Page is loading</h3>)
     }
     
     const dark = props.darkmode;
@@ -40,7 +40,7 @@ export default function Country(props) {
             </a>
             <div className='country-content'>
                 <section>
-                    <img src={flag} alt='Country Flag' className='country-flag' width="800px"/>
+                    <img src={flag} alt='Country Flag' className='country-details-flag' width="800px"/>
                 </section>
                 <div className='country-f'>
                     <h1 className='country-name'>{name}</h1>
@@ -56,7 +56,9 @@ export default function Country(props) {
                     </div>
                     {borders && <div className='border-countries'>
                         <h3 className='borders'>Border Countries:</h3>
-                        {borderCountries}
+                        <div className='borders-grid'>
+                            {borderCountries}
+                        </div>
                     </div>}
                 </div>
             </div>
