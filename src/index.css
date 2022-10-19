@@ -7,7 +7,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: hsl(0, 3%, 94%);
 }
 
 code {
@@ -15,23 +14,39 @@ code {
     monospace;
 }
 
+.main-content {
+  --background: hsl(0, 0%, 95%);
+  --text-color: hsl(200, 15%, 8%);
+  --elem-background: hsl(0, 0%, 100%);
+  --input-color: hsl(0, 1%, 38%);
+  --shadow-color: hsl(0, 0%, 93%);
+  background-color: var(--background);
+  width: 100%;
+  min-height: 120vh;
+  color: var(--text-color)
+}
+
 .header {
-  background-color: hsl(0, 0%, 100%);
+  background-color: var(--elem-background);
   display: flex;
   justify-content: space-between;
   width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
+  box-shadow: 0px 1px 3px 5px var(--shadow-color);
 }
 
 .title {
   margin-left: 100px;
 }
 
-.dark-mode {
-  margin-top: 35px;
+.dark-mode-button {
+  border: 0px;
   margin-right: 300px;
   font-size: 25px;
+  background-color: inherit;
+  color: var(--text-color);
+  margin-top: 5px;
 }
 
 .grid {
@@ -40,10 +55,10 @@ code {
   margin: 100px;
 }
 
-.country-card {
-  background-color: hsl(0, 0%, 100%);
+.card {
+  background-color: var(--elem-background);
   width: 350px;
-  height: 400px;
+  height: 440px;
   margin-bottom: 60px;
   border-radius: 10px;
 }
@@ -76,13 +91,14 @@ a {
 }
 
 .homepage {
-  border: 2px solid rgb(230, 228, 228);
   width: 90px;
   padding: 10px;
   text-align: center;
   border-radius: 5px;
   margin-left: 150px;
   margin-bottom: 60px;
+  background-color: var(--elem-background);
+  box-shadow: 1px 1px 8px 1px rgb(182, 182, 182);
 }
 
 .filters {
@@ -101,19 +117,21 @@ input[type=text] {
   border: 0px;
   border-radius: 5px;
   font-size: 18px;
-  color: hsl(0, 0%, 52%)
+  background-color: var(--elem-background);
+  color: var(--text-color)
 }
 
 input:focus {
-  outline: 1px solid hsl(0, 0%, 52%);
+  outline: 1px solid var(--input-color);
 }
 
 select {
+  background-color: var(--elem-background);
   padding: 20px;
   border: 0px;
   border-radius: 5px;
   font-size: 18px;
-  color: hsl(0, 0%, 52%)
+  color: var(--input-color)
 }
 
 
@@ -142,14 +160,51 @@ select {
 
 .border-country-link {
   padding: 10px;
-  border: 2px solid rgb(230, 228, 228);
+  border: 2px solid var(--elem-background);
   border-radius: 5px;
   margin-top: 10px;
+  background-color: var(--elem-background);
+  box-shadow: 1px 1px 8px 1px rgb(182, 182, 182);
 }
+
+.back {
+  width: 0px;
+}
+
 
 .loading {
   font-size: 50px;
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.main-content.dark {
+  --background: hsl(207, 26%, 17%);
+  --text-color: hsl(0, 0%, 100%);
+  --elem-background: hsl(209, 23%, 22%);
+  --input-color: hsl(0, 0%, 100%);
+  --shadow-color: hsl(208, 24%, 15%);
+}
+
+.border-country-link.dark {
+  box-shadow: 1px 1px 8px 1px hsl(208, 24%, 15%);
+}
+
+.homepage.dark {
+  box-shadow: 1px 1px 8px 1px hsl(208, 24%, 15%);
+}
+
+/*Change Place Holder search input color */
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--input-color);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: var(--text-color);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: var(--text-color);
 }

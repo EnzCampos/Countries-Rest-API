@@ -1,13 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react'
 
-export default function Home() {
+export default function Home(props) {
 
     const [ countries, setCountries] = React.useState()
     const [ filters, setFilters] = React.useState({
         'name': '',
         'region': ''
     })
+
 
     React.useEffect(()=>{
         fetch('https://restcountries.com/v2/all')
@@ -18,8 +19,6 @@ export default function Home() {
     if (!countries) {
         return (<h3 className='loading'>Page is loading</h3>)
     }
-
-    console.log(filters)
 
     const countriesReduced = countries.map( country => {
         return {
@@ -47,17 +46,20 @@ export default function Home() {
         })
     }
 
+    const darkMode = props.darkmode
+
+    console.log(darkMode)
 
     const countryRender = filteredCountries.map(country => {
         return (
-            <div key={country.name} className='card'>
+            <div key={country.name} className={`card ${darkMode}`}>
                 <a href={`./name/${country.name}`} style={{"display": "block"}}>
                     <div className='country-card'>
-                        <img src={country.flag} alt='Country Flag' className='country-flag' width="350px" height="200px"/>
-                        <h2 className='country-card-name'>{country.name}</h2>
-                        <p className='country-card-info'><b>Population:</b> {country.population}</p>
-                        <p className='country-card-info'><b>Region:</b> {country.region}</p>
-                        <p className='country-card-info'><b>Capital:</b> {country.capital}</p>
+                        <img src={country.flag} alt='Country Flag' className={`country-flag ${darkMode}`} width="350px" height="200px" style={{"objectFit": "cover"}}/>
+                        <h2 className={`country-card-name ${darkMode}`}>{country.name}</h2>
+                        <p className={`country-card-info ${darkMode}`}><b>Population:</b> {country.population}</p>
+                        <p className={`country-card-info ${darkMode}`}><b>Region:</b> {country.region}</p>
+                        <p className={`country-card-info ${darkMode}`}><b>Capital:</b> {country.capital}</p>
                     </div>
                 </a>
             </div>
@@ -68,8 +70,8 @@ export default function Home() {
     return (
         <div>
             <form className='filters'>
-                <input type='text' className='search-filter' placeholder='Search for a country...' onChange={handleChange} name='name'/>
-                <select name='region' id='region-filter' className='region-filter' onChange={handleChange}>
+                <input type='text' className={`search-filter ${darkMode}`} placeholder='Search for a country...' onChange={handleChange} name='name'/>
+                <select name='region' id='region-filter' className={`region-filter ${darkMode}`} onChange={handleChange}>
                     <option value='' defaultChecked>Filter by Region</option>
                     <option value='Africa'>Africa</option>
                     <option value='America'>America</option>
@@ -78,7 +80,7 @@ export default function Home() {
                     <option value='Oceania'>Oceania</option>
                 </select>
             </form>
-            <div class='grid'>
+            <div className='grid'>
                 {countryRender}
             </div>
         </div>

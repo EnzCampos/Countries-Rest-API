@@ -2,7 +2,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
-export default function Country() {
+export default function Country(props) {
 
     const { country, code } = useParams()
     const [ countryData, setCountryData ] = React.useState()
@@ -20,22 +20,23 @@ export default function Country() {
         return (<h3>Page is loading</h3>)
     }
     
+    const dark = props.darkmode;
 
-    const { name, borders, nativeName, currencies, languages, capital, region, population, subregion, topLevelDomain, flag } = code ? countryData : countryData[0]
+    const { name, borders, nativeName, currencies, languages, capital, region, population, subregion, topLevelDomain, flag } = code ? countryData : countryData[0];
 
     let borderCountries = '';
 
     if (borders) {
         borderCountries = borders.map(elem => {
             return (
-                <a href={`../code/${elem}`} key={elem} className="border-country-link">{elem}</a>
+                <a href={`../code/${elem}`} key={elem} className={`border-country-link ${dark}`}>{elem}</a>
             ) 
     })}
 
     return (
         <div className='main'>
-            <a href='..' style={{"display": "block"}}>
-                <p className='homepage'> {"<- Back"}</p>
+            <a href='..' style={{"display": "block"}} className='back'>
+                <p className={`homepage ${dark}`}> {"<- Back"}</p>
             </a>
             <div className='country-content'>
                 <section>
