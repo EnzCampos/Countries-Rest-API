@@ -7,12 +7,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: whitesmoke;
+  background-color: hsl(0, 3%, 94%);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.header {
+  background-color: hsl(0, 0%, 100%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.title {
+  margin-left: 100px;
+}
+
+.dark-mode {
+  margin-top: 35px;
+  margin-right: 300px;
+  font-size: 25px;
 }
 
 .grid {
@@ -22,10 +41,10 @@ code {
 }
 
 .country-card {
-  background-color: white;
-  width: 250px;
-  height: 350px;
-  margin-bottom: 35px;
+  background-color: hsl(0, 0%, 100%);
+  width: 350px;
+  height: 400px;
+  margin-bottom: 60px;
   border-radius: 10px;
 }
 
@@ -35,12 +54,14 @@ code {
 
 .country-card-info {
   margin: 15px;
-  font-size: 13px;
+  margin-left: 35px;
+  font-size: 15px;
 }
 
 .country-card-name {
   margin: 15px;
-  font-size: 20px;
+  margin-left: 35px;
+  font-size: 23px;
 }
 
 a {
@@ -63,6 +84,38 @@ a {
   margin-left: 150px;
   margin-bottom: 60px;
 }
+
+.filters {
+  margin-left: 100px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 300px;
+  margin-top: 50px;
+  margin-bottom: -50px;
+}
+
+input[type=text] {
+  padding: 20px;
+  padding-left: 50px;
+  width: 35%;
+  border: 0px;
+  border-radius: 5px;
+  font-size: 18px;
+  color: hsl(0, 0%, 52%)
+}
+
+input:focus {
+  outline: 1px solid hsl(0, 0%, 52%);
+}
+
+select {
+  padding: 20px;
+  border: 0px;
+  border-radius: 5px;
+  font-size: 18px;
+  color: hsl(0, 0%, 52%)
+}
+
 
 .country-f {
   margin-top: 7%;
@@ -92,4 +145,11 @@ a {
   border: 2px solid rgb(230, 228, 228);
   border-radius: 5px;
   margin-top: 10px;
+}
+
+.loading {
+  font-size: 50px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
