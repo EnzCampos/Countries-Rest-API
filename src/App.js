@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Home.js';
 import Country from './Country.js';
@@ -7,9 +7,13 @@ import { faMoon } from '@fortawesome/fontawesome-free-regular'
 
 function App() {
 
-  const [darkmode, setDarkMode] = React.useState(false)
+  const [darkmode, setDarkMode] = React.useState(JSON.parse(localStorage.getItem('darkmode')))
 
   const darkModeClass = darkmode ? "dark" : ""
+
+  useEffect(()=>{
+    localStorage.setItem('darkmode', JSON.stringify(darkmode))
+  },[darkmode])
 
   return (
     <div className={`main-content ${darkModeClass}`}>
