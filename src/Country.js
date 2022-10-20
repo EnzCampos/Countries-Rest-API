@@ -1,5 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { counter } from '@fortawesome/fontawesome-svg-core'
+
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -11,10 +10,10 @@ export default function Country(props) {
     var restCountriesUrl = code ? `https://restcountries.com/v2/alpha/${code}` : `https://restcountries.com/v2/name/${country}`
 
     React.useEffect(()=>{
-        fetch(restCountriesUrl)
+        fetch( restCountriesUrl )
         .then( res => res.json() )
         .then( data => setCountryData(data) )
-    },[code])
+    },[restCountriesUrl])
 
     if (!countryData) {
         return (<h3 className='loading'>Page is loading</h3>)
@@ -23,13 +22,14 @@ export default function Country(props) {
     const dark = props.darkmode;
 
     const { name, borders, nativeName, currencies, languages, capital, region, population, subregion, topLevelDomain, flag } = code ? countryData : countryData[0];
-
+    
     let borderCountries = '';
+
 
     if (borders) {
         borderCountries = borders.map(elem => {
             return (
-                <a href={`/Countries-Rest-API/#/code/${elem}`} key={elem} className={`border-country-link ${dark}`}>{elem}</a>
+                <a href={`/Countries-Rest-API/#/code/${elem}`} key={elem} className={`border-country-link ${dark}`} onClick={()=>{setCountryData()}}>{elem}</a>
             ) 
     })}
 
@@ -54,7 +54,7 @@ export default function Country(props) {
                         <p><b>Currencies:</b> {currencies.map(currency => currency.name)}</p>
                         <p><b>Languages:</b> {(languages.map(lang => lang.name)).toString()}</p>
                     </div>
-                    {borders && <div className='border-countries'>
+                    { borders && <div className='border-countries'>
                         <h3 className='borders'>Border Countries:</h3>
                         <div className='borders-grid'>
                             {borderCountries}
